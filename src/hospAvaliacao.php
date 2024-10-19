@@ -8,7 +8,7 @@ class HospAvaliacao
     public $id_setor;
     public $id_pergunta;
     public $id_dispositivo;
-    public $nr_resposta;
+    public $nr_nota_resposta;
     public $ds_feedback;
     public $dt_hora_avaliacao;
 
@@ -21,14 +21,14 @@ class HospAvaliacao
     // Método para criar uma nova avaliação
     public function create()
     {
-        $sql = "INSERT INTO hosp_avaliacoes (id_setor, id_pergunta, id_dispositivo, nr_resposta, ds_feedback, dt_hora_avaliacao)
-                VALUES (:id_setor, :id_pergunta, :id_dispositivo, :nr_resposta, :ds_feedback, :dt_hora_avaliacao)";
+        $sql = "INSERT INTO hosp_avaliacoes (id_setor, id_pergunta, id_dispositivo, nr_nota_resposta, ds_feedback, dt_hora_avaliacao)
+                VALUES (:id_setor, :id_pergunta, :id_dispositivo, :nr_nota_resposta, :ds_feedback, :dt_hora_avaliacao)";
         
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id_setor', $this->id_setor);
         $stmt->bindParam(':id_pergunta', $this->id_pergunta);
         $stmt->bindParam(':id_dispositivo', $this->id_dispositivo);
-        $stmt->bindParam(':nr_resposta', $this->nr_resposta);
+        $stmt->bindParam(':nr_nota_resposta', $this->nr_nota_resposta);
         $stmt->bindParam(':ds_feedback', $this->ds_feedback);
         $stmt->bindParam(':dt_hora_avaliacao', $this->dt_hora_avaliacao);
 
@@ -50,7 +50,7 @@ class HospAvaliacao
     {
         $sql = "UPDATE hosp_avaliacoes 
                 SET id_setor = :id_setor, id_pergunta = :id_pergunta, id_dispositivo = :id_dispositivo, 
-                    nr_resposta = :nr_resposta, ds_feedback = :ds_feedback, dt_hora_avaliacao = :dt_hora_avaliacao
+                    nr_nota_resposta = :nr_nota_resposta, ds_feedback = :ds_feedback, dt_hora_avaliacao = :dt_hora_avaliacao
                 WHERE id_avaliacao = :id_avaliacao";
 
         $stmt = $this->pdo->prepare($sql);
@@ -58,7 +58,7 @@ class HospAvaliacao
         $stmt->bindParam(':id_setor', $this->id_setor);
         $stmt->bindParam(':id_pergunta', $this->id_pergunta);
         $stmt->bindParam(':id_dispositivo', $this->id_dispositivo);
-        $stmt->bindParam(':nr_resposta', $this->nr_resposta);
+        $stmt->bindParam(':nr_nota_resposta', $this->nr_nota_resposta);
         $stmt->bindParam(':ds_feedback', $this->ds_feedback);
         $stmt->bindParam(':dt_hora_avaliacao', $this->dt_hora_avaliacao);
 

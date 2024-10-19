@@ -19,6 +19,9 @@ $(document).ready(function () {
         url: '../src/get_perguntas.php', // Caminho do arquivo PHP
         type: 'GET',
         dataType: 'json', // Espera uma resposta JSON
+        data: {
+            idStatus: 'A' // Somente perguntas ativas
+        },
         async: false,
         success: function (data) {
             // Manipula a resposta JSON
@@ -78,12 +81,13 @@ $(document).ready(function () {
         var nrNota = $('#idNota').val();
         var nrPergunta = $('#idNota').val();
         var idDispositivo = $('#idDispositivo').val();
+        var idUltPergunta = idPergunta == (arrayPerguntas.length - 1);
 
         console.log(nrNota.length);
         console.log( 'idDispositivo ' +  idDispositivo.length + ' ' + idDispositivo);
  
-        if ( (nrNota.length > 0  &&  idDispositivo.length > 0) || idPergunta == (arrayPerguntas.length - 1)) {
-            insereResposta();
+        if ( (nrNota.length > 0  &&  idDispositivo.length > 0) || idUltPergunta ) {
+            insereResposta(idUltPergunta);
             idPergunta++;
             retornaPergunta(idPergunta);
             $('#idNota').val('');
@@ -95,7 +99,14 @@ $(document).ready(function () {
     });
 
     // Função para salvar as respostas
-    function insereResposta() {
+    function insereResposta(idUltPergunta) {
+        var notaNula = 'N';
+        
+        if(idUltPergunta){
+            notaNula = 'S';
+        }
+
+        console.log('notaNula ' + notaNula);
 
         $.ajax({
             url: '../src/respostas.php',
@@ -104,21 +115,14 @@ $(document).ready(function () {
                 id_setor: 1, 
                 id_pergunta: $('#idPergunta').val(), 
                 id_dispositivo: $('#idDispositivo').val(), 
-                nr_resposta: $('#idNota').val(), 
-                ds_feedback: $('#dsFeedback').val()
+                nr_nota_resposta: $('#idNota').val(), 
+                ds_feedback: $('#dsFeedback').val(),
+                nota_nula: notaNula
             },
             success: function (response) {
 
                 console.log(response);
-
-                /*const data = JSON.parse(response);
-
-                if (data.status === 'success') {
-                    alert(data.message); // Avaliação inserida com sucesso
-                } else {
-                    alert(data.message); // Erro ao inserir a avaliação
-                }
-                    */
+              
             },
             error: function (xhr, status, error) {
                 console.log('Erro na requisição AJAX:', error);

@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_setor = isset($_POST['id_setor']) ? intval($_POST['id_setor']) : null;
     $id_pergunta = isset($_POST['id_pergunta']) ? intval($_POST['id_pergunta']) : null;
     $id_dispositivo = isset($_POST['id_dispositivo']) ? intval($_POST['id_dispositivo']) : null;
-    $nr_resposta = isset($_POST['nr_resposta']) ? intval($_POST['nr_resposta']) : null;
+    $nr_nota_resposta = isset($_POST['nr_nota_resposta']) ? intval($_POST['nr_nota_resposta']) : null;
     $ds_feedback = isset($_POST['ds_feedback']) ? $_POST['ds_feedback'] : null;
 
     // Validar se todos os campos obrigatórios foram preenchidos
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $avaliacao->id_setor = $id_setor;
         $avaliacao->id_pergunta = $id_pergunta;
         $avaliacao->id_dispositivo = $id_dispositivo;
-        $avaliacao->nr_resposta = $nr_resposta;
+        $avaliacao->nr_nota_resposta = $nr_nota_resposta;
         $avaliacao->ds_feedback = $ds_feedback;
         $avaliacao->dt_hora_avaliacao = date('Y-m-d H:i:s'); // Pegando a data/hora atual
 

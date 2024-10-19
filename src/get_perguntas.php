@@ -13,10 +13,10 @@ try {
     $hospPerguntas = new HospPerguntas($conn);
 
     // Obtém o parâmetro de filtro, se houver
-    $filtro = isset($_GET['filtro']) ? $_GET['filtro'] : '';
+    $idStatus = isset($_GET['idStatus']) ? $_GET['idStatus'] : null;
 
     // Retornar todos as perguntas em formato JSON, filtrando se necessário 
-    echo $hospPerguntas->getAllAsJson($filtro); // Passa o filtro para o método
+    echo $hospPerguntas->getAllAsJson($idStatus ); // Passa o filtro para o método
 
 } catch (PDOException $e) {
     echo json_encode(["error" => $e->getMessage()]); // Retorna erro em JSON

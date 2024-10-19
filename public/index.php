@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../src/db.php';  // Inclua a classe
 require_once '../src/hospPerguntas.php';
 require_once '../src/hospDispositivo.php';
@@ -34,10 +35,20 @@ $arrayDispositovos = $dispositivo->listAll('A');
     <div class="container mt-5">
 
         <select id="idDispositivo" class="form-select form-select-lg mb-3" style="width: 300px;" aria-label=".form-select-lg example">
+            <?php
+            if (!isset($_SESSION['idDispositivo'])) {
+            ?>
             <option value="" selected>Selecione o dispositivo</option>
+            <?php } ?>
             <?php            
             foreach ($arrayDispositovos as $dispositivo) {
-                echo '<option value='. $dispositivo["id_dispositivo"]   .'> '. $dispositivo["nome_dispositivo"] .' </option>';
+                if ($_SESSION['idDispositivo'] == $dispositivo["id_dispositivo"] ) {
+                    # code...
+                    echo '<option  selected value='. $dispositivo["id_dispositivo"]   .'> '. $dispositivo["nome_dispositivo"] .' </option>';
+                }else {
+                    # code...
+                    echo '<option value='. $dispositivo["id_dispositivo"]   .'> '. $dispositivo["nome_dispositivo"] .' </option>';
+                }
             }
             ?>
            

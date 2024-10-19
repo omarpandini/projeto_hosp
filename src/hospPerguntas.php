@@ -49,16 +49,11 @@ class HospPerguntas
 
 
     // Método para obter perguntas (todas ou por ID)
-    public function getAll($id_pergunta = null)
+    public function getAll($idStatus)
     {
-        if ($id_pergunta) {
-            $query = "SELECT * FROM hosp_perguntas WHERE id_pergunta = :id_pergunta";
-            $stmt = $this->conn->prepare($query);
-            $stmt->bindParam(':id_pergunta', $id_pergunta);
-        } else {
-            $query = "SELECT * FROM hosp_perguntas";
-            $stmt = $this->conn->prepare($query);
-        }
+        $query = "SELECT * FROM hosp_perguntas WHERE (status_pergunta = :id_status_pergunta or :id_status_pergunta is null )";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id_status_pergunta', $idStatus);
 
         $stmt->execute();
 
@@ -66,10 +61,9 @@ class HospPerguntas
     }
 
     // Método para obter todas as perguntas em formato JSON
-    public function getAllAsJson($id_pergunta = null)
+    public function getAllAsJson($idStatus)
     {
-        $perguntas = $this->getAll($id_pergunta);
+        $perguntas = $this->getAll($idStatus);
         return json_encode($perguntas, JSON_UNESCAPED_UNICODE);
     }
-
 }

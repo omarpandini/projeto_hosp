@@ -27,7 +27,7 @@ CREATE TABLE hosp_avaliacoes (
     id_setor INT NOT NULL,
     id_pergunta INT NOT NULL,
     id_dispositivo INT NOT NULL,
-    nr_resposta INT NOT NULL,
+    nr_nota_resposta INT,
     ds_feedback TEXT,
     dt_hora_avaliacao TIMESTAMP DEFAULT NOW(),
     CONSTRAINT fk_setor FOREIGN KEY (id_setor) REFERENCES hosp_setor(id_setor),
