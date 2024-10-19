@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.background {
+    background: rgb(255, 243, 243);
+    border: solid 2px black;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h1 {
+    color: #d32f2f;
+    margin-bottom: 40px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.rating-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    font-family: "Alata", sans-serif;
+    margin-left: 10px;
+}
+
+.rating-btn:nth-child(1) { background-color: #f44336; }
+.rating-btn:nth-child(2) { background-color: #f4511e; }
+.rating-btn:nth-child(3) { background-color: #ff9800; }
+.rating-btn:nth-child(4) { background-color: #ffb74d; }
+.rating-btn:nth-child(5) { background-color: #ffeb3b; color: black; }
+.rating-btn:nth-child(6) { background-color: #cddc39; color: black; }
+.rating-btn:nth-child(7) { background-color: #8bc34a; color: black; }
+.rating-btn:nth-child(8) { background-color: #66bb6a; }
+.rating-btn:nth-child(9) { background-color: #4caf50; }
+.rating-btn:nth-child(10) { background-color: #388e3c; }
+.rating-btn:nth-child(11) { background-color: #2e7d32; }
+
+
+.rating-btn[value="0"]:hover { background-color: #FF0000; box-shadow: 0 0 10px #FF0000; }
+.rating-btn[value="1"]:hover { background-color: #FF4500; box-shadow: 0 0 10px #FF4500; }
+.rating-btn[value="2"]:hover { background-color: #FF6347; box-shadow: 0 0 10px #FF6347; }
+.rating-btn[value="3"]:hover { background-color: #FF7F50; box-shadow: 0 0 10px #FF7F50; }
+.rating-btn[value="4"]:hover { background-color: #FFA500; box-shadow: 0 0 10px #FFA500; }
+.rating-btn[value="5"]:hover { background-color: #FFFF00; box-shadow: 0 0 10px #FFFF00; }
+.rating-btn[value="6"]:hover { background-color: #ADFF2F; box-shadow: 0 0 10px #ADFF2F; }
+.rating-btn[value="7"]:hover { background-color: #7CFC00; box-shadow: 0 0 10px #7CFC00; }
+.rating-btn[value="8"]:hover { background-color: #32CD32; box-shadow: 0 0 10px #32CD32; }
+.rating-btn[value="9"]:hover { background-color: #00FA9A; box-shadow: 0 0 10px #00FA9A; }
+.rating-btn[value="10"]:hover { background-color: #00FF00; box-shadow: 0 0 10px #00FF00; }
+
+.rating-btn.selected {
+    border: 2px solid #333;
+}
+
+.feedback {
+    margin-bottom: 50px;
+    font-weight:bold;
+    color: #d32f2f;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+}
+
+.submit-btn {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #b71c1c;
+}
+
+.disclaimer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #777;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 15px;
+        max-width: 600px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    label {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .rating-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    textarea {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .rating-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    textarea {
+        font-size: 12px;
+    }
+
+    .submit-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
