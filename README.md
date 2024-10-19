@@ -6,6 +6,7 @@ Instação PHP + PostgreSql
                           PHP - Windows
                           
 **1.** Baixar o XAMPP https://www.apachefriends.org/pt_br/download.html
+
 **2** - Na tela de instalação, você pode escolher quais componentes deseja instalar. Normalmente, Apache, MySQL e PHP são selecionados por padrão. Selecione os que você precisa e clique em "Next".
 **3** - Escolha o diretório onde o XAMPP será instalado (o padrão é C:\xampp). Clique em "Next".
 **4** - Clique em "Next" novamente e, em seguida, clique em "Install" para iniciar a instalação.
