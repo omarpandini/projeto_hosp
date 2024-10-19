@@ -25,6 +25,7 @@ Instação PHP + PostgreSql
 
                           **PostgreSql - Windows**
 **1.** Instalar o PostgreSql https://www.postgresql.org/download/
+
 **2.** Criar um banco padrão. Usuário: postgres . Senha: admin
 
                          ** Habilitando Posgresql no php   **                       
